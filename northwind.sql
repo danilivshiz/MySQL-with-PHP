@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2017 at 05:00 PM
+-- Generation Time: Jul 16, 2017 at 06:23 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.5.38
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `l40_computers` (
   `id` int(11) NOT NULL,
-  `manufacturer_id` int(11) NOT NULL,
+  `manufacturer` varchar(20) NOT NULL,
   `price` decimal(10,0) NOT NULL,
   `model` varchar(20) NOT NULL,
   `motherboard` varchar(20) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE `l40_computers` (
 
 CREATE TABLE `l40_keyboards` (
   `id` int(11) NOT NULL,
-  `manufacturer_id` int(11) NOT NULL,
+  `manufacturer` varchar(20) NOT NULL,
   `price` decimal(10,0) NOT NULL,
   `model` varchar(20) NOT NULL,
   `isWired` tinyint(1) NOT NULL
@@ -70,7 +70,7 @@ CREATE TABLE `l40_manufacturer` (
 
 CREATE TABLE `l40_mouses` (
   `id` int(11) NOT NULL,
-  `manufacturer_id` int(11) NOT NULL,
+  `manufacturer` varchar(20) NOT NULL,
   `price` decimal(10,0) NOT NULL,
   `model` varchar(20) NOT NULL,
   `is_wired` tinyint(1) NOT NULL
@@ -84,10 +84,10 @@ CREATE TABLE `l40_mouses` (
 
 CREATE TABLE `l40_screens` (
   `id` int(11) NOT NULL,
-  `manufacturer_id` int(11) NOT NULL,
   `price` decimal(10,0) NOT NULL,
   `model` varchar(11) NOT NULL,
-  `size` int(11) NOT NULL
+  `size` int(11) NOT NULL,
+  `manufacturer` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -98,15 +98,13 @@ CREATE TABLE `l40_screens` (
 -- Indexes for table `l40_computers`
 --
 ALTER TABLE `l40_computers`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `manufacturer_id` (`manufacturer_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `l40_keyboards`
 --
 ALTER TABLE `l40_keyboards`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `manufacturer_id` (`manufacturer_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `l40_manufacturer`
@@ -118,15 +116,13 @@ ALTER TABLE `l40_manufacturer`
 -- Indexes for table `l40_mouses`
 --
 ALTER TABLE `l40_mouses`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `manufacturer_id` (`manufacturer_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `l40_screens`
 --
 ALTER TABLE `l40_screens`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `manufacturer_id` (`manufacturer_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -156,35 +152,7 @@ ALTER TABLE `l40_mouses`
 -- AUTO_INCREMENT for table `l40_screens`
 --
 ALTER TABLE `l40_screens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `l40_computers`
---
-ALTER TABLE `l40_computers`
-  ADD CONSTRAINT `manufacturer` FOREIGN KEY (`manufacturer_id`) REFERENCES `l40_manufacturer` (`id`);
-
---
--- Constraints for table `l40_keyboards`
---
-ALTER TABLE `l40_keyboards`
-  ADD CONSTRAINT `manufacturer_keyboard` FOREIGN KEY (`manufacturer_id`) REFERENCES `l40_manufacturer` (`id`);
-
---
--- Constraints for table `l40_mouses`
---
-ALTER TABLE `l40_mouses`
-  ADD CONSTRAINT `manufacturer_mouse` FOREIGN KEY (`manufacturer_id`) REFERENCES `l40_manufacturer` (`id`);
-
---
--- Constraints for table `l40_screens`
---
-ALTER TABLE `l40_screens`
-  ADD CONSTRAINT `manufacturer_screens` FOREIGN KEY (`manufacturer_id`) REFERENCES `l40_manufacturer` (`id`);
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
