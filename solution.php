@@ -50,7 +50,7 @@ class Mouse extends ElectronicPart implements IElectronicPart{
 class Keyboard extends ElectronicPart implements IElectronicPart{
     private $isWired;
 
-    public function __construct($manufacturer, $price, $serial, $isWired) {
+    public function __construct($manufacturer, $price, $model, $isWired) {
         $this->manufacturer = $manufacturer;
         $this->price = $price;
         $this->model = $model;
