@@ -3,6 +3,7 @@ interface IElectronicPart {
     public function getSpecs();
 }
 
+
 class ElectronicPart {
     private $manufacturer;
     private $price;
