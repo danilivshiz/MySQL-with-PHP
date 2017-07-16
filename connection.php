@@ -35,7 +35,7 @@ foreach ($stmt as $row)
 }
 
 // Insert 
-$statement = $link->prepare("INSERT INTO testtable(name, lastname, age)
+$statement = $pdo->prepare("INSERT INTO testtable(name, lastname, age)
     VALUES(:fname, :sname, :age)");
 $statement->execute(array(
     "fname" => "Bob",
